@@ -112,9 +112,14 @@ async function fetchMyPRs() {
 	if (!fs.existsSync(outputDir)) {
 		fs.mkdirSync(outputDir, { recursive: true });
 	}
-	const outputPath = path.join(outputDir, 'my_prs.json');
-	fs.writeFileSync(outputPath, JSON.stringify(enhancedPRs, null, 2));
-	console.log(`Saved ${enhancedPRs.length} PRs to ${outputPath}`);
+	const outputPathJson = path.join(outputDir, 'my_prs.json');
+	const outputPathTxt = path.join(outputDir, 'my_prs.txt');
+	const outputData = JSON.stringify(enhancedPRs, null, 2);
+	fs.writeFileSync(outputPathJson, outputData);
+	fs.writeFileSync(outputPathTxt, outputData);
+	console.log(
+		`Saved ${enhancedPRs.length} PRs to ${outputPathJson} and ${outputPathTxt}`
+	);
 }
 
 fetchMyPRs().catch((err) => {
