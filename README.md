@@ -25,6 +25,7 @@ This script was generated with the help of AI.
    ```
    - The token must have `repo` scope to access private repositories.
    - If your organization uses SSO, make sure to authorize the token for SSO.
+   - **SAML SSO Authentication**: If your organization uses SAML SSO, you must authorize your Personal Access Token for SSO after creating a classic token. You can do this from the command line with the GitHub CLI, or by navigating to your token settings on GitHub and clicking the "Enable SSO" or "Authorize" button for your organization. This step is required before the token can access private repositories in that organization from the terminal.
 
 ## Usage
 
